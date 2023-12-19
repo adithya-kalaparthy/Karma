@@ -1,0 +1,25 @@
+.nav-container {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  background: black;
+}
+
+.nav-option-section {
+  display: flex;
+  gap: 15px;
+  padding-right: 30px;
+}
+
+.nav-option-link {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding-bottom: 4px;
+}
+
+a.active {
+  color: var(--karma-lime);
+  border-bottom: 2px solid var(--karma-lime);
+}
