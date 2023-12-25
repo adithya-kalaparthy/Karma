@@ -1,29 +1,52 @@
 import { Task } from "../../types/Task";
 import { TaskService } from "../../services/TaskService";
-import { useEffect, useState } from "react";
+import { TaskDataContext } from "../contexts/TaskDataContext";
+import { useEffect, useMemo, useState } from "react";
+import { Columns } from "../../types/HomePage";
+import {
+  MRT_ColumnDef,
+  MaterialReactTable,
+  useMaterialReactTable,
+} from "material-react-table";
 
 const TableComponent = () => {
-  const taskService = new TaskService();
+  // Data of the table.
   const [taskList, setTaskList] = useState<Task[]>([]);
 
   useEffect(() => {
+    const taskService = new TaskService();
+
     (async () => {
       const parsedData = await taskService.getTaskData();
       setTaskList(parsedData);
     })();
   }, []);
 
-  if (taskList.length == 0) {
-    return (
-      <div>
-        <span>No tasks are available</span>
-      </div>
-    );
-  }
+  const columns = useMemo<MRT_ColumnDef<Task>[]>(() => Columns, []);
+
+  const table = useMaterialReactTable({
+    columns: columns,
+    data: taskList,
+    enableColumnResizing: true,
+  });
+
+  const handleDataEdit = (updatedTaskList: Task[]): void => {
+    setTaskList([]);
+
+    (() => {
+      setTimeout(() => {
+        setTaskList(updatedTaskList);
+      }, 100);
+    })();
+  };
 
   return (
     <div className="table-container">
-      <span>{taskList[0].task_title}</span>
+      <TaskDataContext.Provider
+        value={{ taskList: taskList, handleDataEdit: handleDataEdit }}
+      >
+        <MaterialReactTable table={table} />
+      </TaskDataContext.Provider>
     </div>
   );
 };

@@ -1,21 +1,9 @@
-.homepage-heading {
-  font-family: cursive;
-  color: teal;
+.homepage-container {
   display: flex;
   justify-content: center;
-  padding-right: 100px;
+  width: 100%;
 }
 
 .homepage-body {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage-para {
-  font-family: "Courier New", Courier, monospace;
-  letter-spacing: -0.5px;
-  color: black;
-  width: 70%;
+  width: 100%;
 }
