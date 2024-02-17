@@ -1,0 +1,10 @@
+.task-title-form {
+  width: 100%;
+}
+
+.task-title-input {
+  width: 95%;
+  border: 1px solid var(--karma-grey);
+  border-radius: 5px;
+  padding: 8px;
+}

@@ -1,0 +1,31 @@
+.actions-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-icon {
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.action-icon:hover {
+  background-color: var(--karma-lime);
+  cursor: pointer;
+}
+
+.open-icon {
+  background-color: #4848f6c4;
+}
+
+.check-icon {
+  background-color: #007c00d9;
+}
+
+.delete-icon {
+  background-color: #c90808c4;
+}
+
+.clear-icon {
+  background-color: grey;
+}

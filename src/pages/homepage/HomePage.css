@@ -1,0 +1,9 @@
+.homepage-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.homepage-body {
+  width: 100%;
+}
